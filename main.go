@@ -1,16 +1,15 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"os"
 )
 
 func main(){
-	fmt.Println("hy!!")
-	 s, sep := "", ""
-	for a := range os.Args[1:] {
-		s += sep + a
-		sep = " "
+	newFile, err := os.Create("test.txt")
+	if err != nil {
+		log.Fatal(err)
 	}
-	fmt.Println(os.Args[a])
+	log.Println(newFile)
+	newFile.Close()
 }
